@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+  db:
+    build: ./db/
+    container_name: solana-v0-dev-db
+    networks:
+      - solana-v0-dev
+    restart: always
+    ports:
+      - 5444:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=solana
+      - POSTGRES_PASSWORD=solana
+  adminer:
+    image: adminer
+    container_name: solana-v0-dev-adminer
+    networks:
+      - solana-v0-dev
+    restart: always
+    ports:
+      - 3044:8080
+
+volumes:
+  db:
+    name: solana-v0-dev-db
+  testdb:
+    name: solana-v0-dev-testdb
+
+networks:
+  solana-v0-dev:

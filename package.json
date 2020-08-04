@@ -1,0 +1,41 @@
+{
+  "name": "solana-v0",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "docker-dev": "cd packages/ && docker-compose down && docker-compose up -d --build",
+    "start": "lerna run start-dev --stream",
+    "docker-dev-clean-db": "cd packages/ && docker-compose down && docker volume rm solana-v0-dev-db",
+    "docker-prod": "docker-compose down && cd ./packages/counter-service/ && yarn build && cd ../../ && docker-compose up -d --build && echo 'use http://localhost:3010/' && docker-compose logs -f",
+    "install": "npip install",
+    "nopy": "nopy",
+    "npip": "npip",
+    "clean-pre-commit": "nopenv pre-commit clean",
+    "lint": "nopenv pre-commit run -a"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "python": {
+    "execPath": "python3",
+    "dependencies": {
+      "pre-commit": ">=2.5"
+    }
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.19.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "nopy": "^0.2.7",
+    "prettier": "^2.0.5"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "solana-v0-counter-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start-dev": "yarn run migrate && DEBUG=solana-v0-counter-service*,-nodemon:* NODE_ENV=development nodemon index.js",
+    "start-prod": "DEBUG=solana-v0-counter-service* NODE_ENV=production node dist/api.js",
+    "migrate": "knex migrate:latest",
+    "migrate-down": "knex migrate:down"
+  },
+  "keywords": [
+    "express"
+  ],
+  "engines": {
+    "node": ">= 10.21.0",
+    "yarn": ">= 1.22.4"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^0.63.1",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.5.0",
+    "eslint-plugin-jest": "^23.19.0",
+    "express": "^4.17.1",
+    "hdkey": "^2.0.1",
+    "knex": "^0.21.2",
+    "pg": "^8.3.0",
+    "pg-error-constants": "^1.0.0",
+    "swagger-ui-express": "^4.1.4",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.0",
+    "webpackbar": "^4.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "*",
+    "nodemon": "*"
+  }
+}

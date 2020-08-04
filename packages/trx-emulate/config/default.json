@@ -1,0 +1,15 @@
+{
+  "port": 4001,
+  "wallet": {
+    "pub": "5UdwGv8NZ23EFf159DMY46935zfLxsEESg7jeY9AAnbz"
+  },
+  "wallet2": {
+    "pub": "9MiRBw26mM7gn6cAgC1nsQtuxDuDNz4K5pPLmm4cK2D8"
+  },
+  "memo": {
+    "address": "Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo"
+  },
+  "connection": {
+    "url": "https://devnet.solana.com"
+  }
+}

@@ -1,0 +1,52 @@
+version: '3.4'
+
+services:
+  counter-service:
+    build: packages/counter-service
+    container_name: solana-v0-counter-service
+    networks:
+      - solana-v0
+    restart: always
+    volumes:
+      - ./packages/counter-service/package.json:/service/package.json:ro
+      - ./packages/counter-service/yarn.lock:/service/yarn.lock:ro
+      - ./packages/counter-service/dist/:/service/dist/:ro
+      - ./packages/counter-service/config/:/service/config/:ro
+      - ./packages/counter-service/utils/:/service/utils/:ro
+      - ./packages/counter-service/database/:/service/database/:ro
+      - ./packages/counter-service/knexfile.js:/service/knexfile.js:ro
+    links:
+      - db
+    env_file:
+      - '.env'
+    ports:
+      - '127.0.0.1:3053:3030'
+  db:
+    build: ./packages/db
+    container_name: solana-v0-db
+    networks:
+      - solana-v0
+    restart: always
+    ports:
+      - 5454:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    env_file:
+      - '.env'
+    environment:
+      - POSTGRES_USER=solana
+  adminer:
+    image: adminer
+    container_name: solana-v0-adminer
+    networks:
+      - solana-v0
+    restart: always
+    ports:
+      - 3054:8080
+
+volumes:
+  db:
+    name: solana-v0-db
+
+networks:
+  solana-v0:

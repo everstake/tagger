@@ -1,0 +1,22 @@
+{
+  "name": "trx-emulate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "DEBUG=trx-emulate*,-nodemon* NODE_ENV=development nodemon index.js",
+    "start": "NODE_ENV=production node index.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^0.63.1",
+    "bip39": "^3.0.2",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "hdkey": "^2.0.1",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

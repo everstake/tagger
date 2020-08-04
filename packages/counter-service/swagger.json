@@ -1,0 +1,28 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Solana-v0",
+    "version": "1.0",
+    "description": "A simple program for counting \"plays\" or other kinds of things. "
+  },
+  "paths": {
+    "/counter": {
+      "get": {
+        "description": "Returns all counters for given public key",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "publicKey",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of counters"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "port": "3030",
+  "postgres": {
+    "client": "pg",
+    "connection": {
+      "user": "solana",
+      "database": "solana"
+    },
+    "migrations": {
+      "directory": "./database/migrations"
+    }
+  },
+  "memo": {
+    "address": "Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo"
+  },
+  "connection": {
+    "http": "https://devnet.solana.com",
+    "ws": "ws://devnet.solana.com:8900"
+  },
+  "parser": {
+    "commitment": "max",
+    "slotTimeout": 10000
+  },
+  "backup": {
+    "timeInterval": 60000,
+    "slotInterval": 10000
+  }
+}
