@@ -18,7 +18,7 @@ Launch application
 
 Go to `{server}/api-docs`
 
-readmo## Production
+## Production
 
 For production launch inside docker you need to build module before launching docker-compose
 
